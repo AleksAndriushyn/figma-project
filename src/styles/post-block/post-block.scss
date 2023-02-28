@@ -1,0 +1,20 @@
+@use "../common.scss" as common;
+
+
+
+.post-block {
+	@include common.width-height-options(1170px, 741px);
+	@include common.flex-options(column);
+	gap: 50px;
+
+	@media screen and (max-width: 1024px) {
+		@include common.width-height-options(904px, 741px);
+		margin: auto;
+	}
+	@media screen and (max-width: 768px) {
+		@include common.width-height-options(704px, 741px);
+	}
+	@media screen and (max-width: 360px) {
+		@include common.width-height-options(328px, 781px);
+	}
+}

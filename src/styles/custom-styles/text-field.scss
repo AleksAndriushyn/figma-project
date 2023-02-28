@@ -1,0 +1,87 @@
+@use "../common.scss" as common;
+
+$default-color: #7e7e7e;
+$error-color: #cb3d40;
+$form-height:54px;
+
+@mixin span-options($color) {
+	@include common.font-options(12px, 14px, $color);
+	position: absolute;
+	top: 58px;
+	margin-left: 15px;
+}
+
+@mixin label-options($color) {
+	@include common.font-options(14px, 14px, $color);
+}
+
+.form-input {
+	@include common.width-height-options(380px, $form-height);
+	@include common.flex-options(column, none, none);
+	gap: 4px;
+	position: relative;
+
+	input {
+		@include common.font-options();
+		@include common.input-styles();
+
+		padding-left: 14px;
+		outline: 0;
+	}
+
+	span {
+		// phone input span styles
+		@include span-options($default-color);
+		width: 137px;
+	}
+
+	label {
+		@include common.font-options(1rem, 26px, $default-color);
+	}
+
+	@media screen and (max-width: 360px) {
+		@include common.width-height-options(328px, $form-height);
+	}
+}
+
+.form-input.focused label {
+	// label style when focused
+	@include label-options($default-color);
+}
+
+.form-input.focused.error label {
+	// label style when focused and error
+	@include label-options($error-color);
+}
+
+.form-input label,
+.form-input.error label {
+	position: absolute;
+	transform: translateY(50%);
+	pointer-events: none;
+	transition: all 0.2s ease;
+	left: 1rem;
+}
+
+.form-input.focused label,
+.form-input.focused.error label {
+	transform: translateY(-50%);
+	margin: auto 11px;
+	left: 0;
+	padding: 0px 3px 0px 3px;
+	background-color: #f8f8f8;
+}
+
+.form-input.error {
+	// error styles for input, span and label
+	input {
+		@include common.error();
+	}
+	label {
+		@include common.font-options(1rem, 26px, $error-color);
+	}
+	span {
+		@include span-options($error-color);
+		width: auto;
+	}
+}

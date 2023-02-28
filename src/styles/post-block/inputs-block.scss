@@ -1,0 +1,6 @@
+@use "../common.scss" as common;
+
+.inputs-block {
+	@include common.flex-options(column);
+	gap: 50px;
+}

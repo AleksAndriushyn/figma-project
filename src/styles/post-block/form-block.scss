@@ -1,0 +1,16 @@
+.form-block {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+
+	.sign-up-block {
+		width: 100%;
+		text-align: center;
+		margin-top: 50px;
+	}
+
+	.sign-up-block button {
+		background: #b4b4b4;
+		color: #ffffff;
+	}
+}

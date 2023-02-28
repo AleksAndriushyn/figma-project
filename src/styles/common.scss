@@ -1,0 +1,35 @@
+@mixin error() {
+    // error input style
+    border: 2px solid #cb3d40;
+    border-radius: 4px;
+}
+
+@mixin font-options($font-size: 1em, $line-height: 26px, $color: #000000de) {
+    // default font options
+    font-size: $font-size;
+    line-height: $line-height;
+    color: $color;
+    font-family: "Nunito";
+}
+
+@mixin flex-options($flex-direction: row, $justify-content: center, $align-items: center) {
+    // default flex options
+    display: flex;
+    align-items: $align-items;
+    justify-content: $justify-content;
+    flex-direction: $flex-direction;
+}
+
+@mixin width-height-options($width: auto, $height: auto) {
+    width: $width;
+    height: $height;
+}
+
+@mixin input-styles() {
+    // common input styles
+    @include font-options();
+    background-color: #f8f8f8;
+    border: 1px solid #d0cfcf;
+    border-radius: 4px;
+    height: 54px;
+}

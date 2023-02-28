@@ -1,0 +1,59 @@
+@use "../common.scss" as common;
+
+$height: 54px;
+
+.upload-block {
+	@include common.flex-options(column, none, none);
+	margin-top: 47px;
+	position: relative;
+	width: 380px;
+	height: $height;
+
+	input {
+		@include common.font-options();
+		@include common.input-styles();
+
+		outline: 0;
+		pointer-events: none;
+	}
+
+	input::placeholder {
+		padding-left: 97px;
+	}
+
+	.selected::placeholder { // style for placeholder when file is selected
+		color: #000000de;
+	}
+
+	label {
+		@include common.width-height-options(80px, 52px);
+		@include common.font-options();
+		@include common.flex-options();
+
+		border: 1px solid #000000de;
+		border-radius: 4px 0px 0px 4px;
+		margin-right: 295px; // move label Upload to the beginning of input
+		position: absolute;
+	}
+
+	@media screen and (max-width: 360px) {
+		@include common.width-height-options(328px, $height);
+	}
+}
+
+.upload-block.error {
+	input {
+		@include common.error();
+	}
+	label {
+		@include common.width-height-options(79px, 50px);
+		@include common.error();
+		border-radius: 4px 0px 0px 4px;
+	}
+	span {
+		@include common.font-options(12px, 14px, #cb3d40);
+		margin-left: 15px;
+		top: 58px;
+		position: absolute;
+	}
+}

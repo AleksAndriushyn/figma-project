@@ -1,0 +1,91 @@
+@use "./common.scss" as common;
+
+.users-block {
+	@include common.width-height-options(1168px, 711px);
+	@include common.flex-options(column);
+	gap: 50px;
+
+	@media screen and (max-width: 1024px) {
+		@include common.width-height-options(904px, 711px);
+		margin: auto;
+	}
+	@media screen and (max-width: 768px) {
+		@include common.width-height-options(704px, 968px);
+	}
+	@media screen and (max-width: 360px) {
+		@include common.width-height-options(328px, 1838px);
+	}
+
+	.MuiList-root {
+		// styles for list of users
+		height: 537px;
+		padding: 0px;
+		display: grid;
+		grid-template-columns: repeat(3, auto);
+		gap: 29px;
+
+		@media screen and (max-width: 768px) {
+			grid-template-columns: repeat(2, auto);
+			gap: 16px;
+			height: 794px;
+		}
+
+		@media screen and (max-width: 360px) {
+			grid-template-columns: repeat(1, auto);
+			gap: 20px;
+			height: 1624px;
+		}
+
+		li {
+			// styles for each user card
+			@include common.width-height-options(370px, 254px);
+			@include common.flex-options(column);
+			gap: 20px;
+
+			background: #ffffff;
+			border-radius: 10px;
+
+			@media screen and (max-width: 1024px) {
+				@include common.width-height-options(282px, 254px);
+			}
+			@media screen and (max-width: 768px) {
+				@include common.width-height-options(344px, 254px);
+			}
+			@media screen and (max-width: 360px) {
+				@include common.width-height-options(328px, 254px);
+			}
+		}
+
+		.avatar {
+			@include common.width-height-options(70px, 70px);
+		}
+
+		.name,
+		.description div {
+			// styles for users name and description
+			@include common.width-height-options(330px);
+			@include common.font-options();
+
+			overflow: hidden; // styles to
+			text-overflow: ellipsis; // collapse name or description
+			white-space: nowrap; // if it doesn't fit in the user card
+
+			text-align: center;
+
+			cursor: pointer; // for tooltip
+		}
+
+		.description {
+			@include common.flex-options(column);
+		}
+	}
+
+	.MuiTooltip-popper {
+		@include common.font-options();
+		border-radius: 4px;
+	}
+
+	button {
+		width: 7.5rem;
+	}
+}

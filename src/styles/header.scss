@@ -1,0 +1,38 @@
+@use "./common.scss" as common;
+
+$header-container-width: 1170px;
+$header-container-height: 60px;
+
+.header-container {
+	@include common.width-height-options(100%, $header-container-height);
+	@include common.flex-options(row);
+	background: #ffffff;
+
+	.header {
+		@include common.width-height-options($header-container-width, $header-container-height);
+		@include common.flex-options(row, space-between);
+
+		@media screen and (max-width: 1024px) {
+			@include common.width-height-options(1024px, $header-container-height);
+			@include common.flex-options(row, space-evenly);
+			gap: 530px;
+		}
+
+		@media screen and (max-width: 768px) {
+			@include common.width-height-options(768px, $header-container-height);
+			@include common.flex-options(row, center, center);
+			gap: 390px;
+		}
+
+		@media screen and (max-width: 360px) {
+			@include common.width-height-options(360px, $header-container-height);
+			@include common.flex-options(row, center, center);
+			gap: 14px;
+		}
+	}
+
+	.button-group {
+		display: flex;
+		gap: 10px;
+	}
+}

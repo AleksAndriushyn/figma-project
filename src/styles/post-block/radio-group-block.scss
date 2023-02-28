@@ -1,0 +1,52 @@
+@use "../common.scss" as common;
+
+$margin-right: 23px;
+
+.radio-group-block {
+	@include common.flex-options(column, none, none);
+	@include common.width-height-options(380px, 161px);
+
+	margin-top: 43px;
+
+	.MuiFormLabel-root {
+		@include common.font-options();
+		@include common.width-height-options(auto, 25px);
+		margin-left: -1px;
+		margin-bottom: 11px;
+	}
+
+	.MuiFormControlLabel-label {
+		// position name styles
+		@include common.font-options();
+		@include common.width-height-options(141px, 26px);
+		margin-bottom: 7px;
+	}
+
+	.radio-group {
+		width: 173px;
+	}
+
+	.MuiRadio-root {
+		// radio button styles
+		@include common.width-height-options(20px, 20px);
+		@include common.flex-options(row, flex-start);
+		margin-bottom: 7px;
+		margin-right: $margin-right;
+	}
+
+	.MuiRadio-root:hover {
+		// radio button styles when hovered
+		background-color: transparent;
+	}
+
+	.MuiRadio-root.Mui-checked {
+		// radio button styles when checked
+		@include common.flex-options(row, none, none);
+		color: #00bdd3;
+		margin-right: $margin-right;
+	}
+
+	@media screen and (max-width: 360px) {
+		@include common.width-height-options(328px, 161px);
+	}
+}

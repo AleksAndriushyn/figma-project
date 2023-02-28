@@ -1,0 +1,58 @@
+@use "./common.scss" as common;
+
+@mixin container-styles {
+	@include common.flex-options(column);
+	@include common.width-height-options(1170px, 650px);
+	background: url("../../public/Rectangle-29-2560.png");
+	position: relative;
+}
+
+@mixin media-query($max-width, $height, $url) {
+	@media screen and (max-width: $max-width) {
+		@include common.width-height-options(100%, $height);
+		background: url($url);
+	}
+}
+
+@mixin container-media-queries {
+	@include media-query(1024px, 650px, "../../public/Rectangle-29-1024.png");
+	@include media-query(768px, 500px, "../../public/Rectangle-29-768.png");
+	@include media-query(360px, 500px, "../../public/Rectangle-29-360.png");
+}
+
+.container {
+	@include container-styles;
+
+	.centered {
+		@include common.flex-options(column);
+		@include common.width-height-options(380px);
+
+		gap: 32px;
+
+		@media screen and (max-width: 360px) {
+			@include common.width-height-options(328px, 389px);
+			margin-bottom: 30px;
+		}
+	}
+
+	.text {
+		@include common.flex-options(column);
+		@include common.width-height-options(auto, 257px);
+
+		gap: 21px;
+		text-align: center;
+
+		.text-headline {
+			@include common.font-options(40px, 40px, #ffffff);
+		}
+
+		.text-description {
+			@include common.font-options(1em, 26px, #ffffff);
+		}
+
+		@media screen and (max-width: 360px) {
+			@include common.width-height-options(auto, 323px);
+		}
+	}
+	@include container-media-queries;
+}
